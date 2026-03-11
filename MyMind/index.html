@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyMind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <div class="brand-lockup">
+            <div class="brand-mark">M</div>
+            <div>
+              <p class="eyebrow">Clarity-first mind mapping</p>
+              <h1>MyMind</h1>
+            </div>
+          </div>
+          <a class="ghost-link" href="#workspace">Open workspace</a>
+        </nav>
+
+        <div class="hero-grid">
+          <section class="hero-copy">
+            <p class="hero-kicker">Organize your inner universe</p>
+            <h2>Map thoughts as living planets instead of flat lists.</h2>
+            <p class="hero-text">
+              MyMind is a browser-based idea mapper inspired by orbit-style mind maps.
+              Focus on one topic, dive into branches, and keep each thought visible in context.
+            </p>
+
+            <div class="hero-actions">
+              <a class="primary-button" href="#workspace">Start mapping</a>
+              <button class="secondary-button" id="reset-demo" type="button">
+                Reset demo map
+              </button>
+            </div>
+
+            <ul class="hero-points">
+              <li>Multi-layer radial tree with circular nodes</li>
+              <li>Collapse or expand any branch independently</li>
+              <li>Export the current map view as SVG, PNG, or PDF</li>
+            </ul>
+          </section>
+
+          <section class="hero-preview" aria-label="Preview">
+            <div class="preview-orbit preview-orbit-a"></div>
+            <div class="preview-orbit preview-orbit-b"></div>
+            <div class="preview-card preview-core">
+              <span>Product Vision</span>
+            </div>
+            <div class="preview-card preview-card-a">Research</div>
+            <div class="preview-card preview-card-b">Roadmap</div>
+            <div class="preview-card preview-card-c">Growth</div>
+            <div class="preview-card preview-card-d">Hiring</div>
+          </section>
+        </div>
+      </header>
+
+      <main id="workspace" class="workspace">
+        <section class="map-stage">
+          <div class="stage-header">
+            <div>
+              <p class="eyebrow">Focus space</p>
+              <h3 id="focus-title">Radial map</h3>
+            </div>
+            <div class="stage-actions">
+              <button id="focus-parent" class="chip-button" type="button">Select parent</button>
+              <button id="collapse-all" class="chip-button" type="button">Collapse all</button>
+              <button id="expand-all" class="chip-button" type="button">Expand all</button>
+              <button id="reset-view" class="chip-button" type="button">Reset view</button>
+              <button id="export-svg" class="chip-button chip-button-strong" type="button">SVG</button>
+              <button id="export-png" class="chip-button chip-button-strong" type="button">PNG</button>
+              <button id="export-pdf" class="chip-button chip-button-strong" type="button">PDF</button>
+            </div>
+          </div>
+
+          <nav id="breadcrumbs" class="breadcrumbs" aria-label="Breadcrumb"></nav>
+          <div id="map-canvas" class="map-canvas" aria-live="polite"></div>
+        </section>
+
+        <aside class="inspector">
+          <section class="panel">
+            <p class="eyebrow">Selected node</p>
+            <h3 id="inspector-title">My Universe</h3>
+            <p id="inspector-note" class="panel-copy"></p>
+            <dl class="meta-grid">
+              <div>
+                <dt>Children</dt>
+                <dd id="inspector-count">0</dd>
+              </div>
+              <div>
+                <dt>Depth</dt>
+                <dd id="inspector-depth">0</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="panel">
+            <p class="eyebrow">Edit node</p>
+            <form id="node-form" class="node-form">
+              <label>
+                Title
+                <input id="node-title" name="title" maxlength="48" required />
+              </label>
+              <label>
+                Note
+                <textarea id="node-note" name="note" rows="4" maxlength="240"></textarea>
+              </label>
+              <div class="palette-block">
+                <span class="palette-label">Color</span>
+                <div id="node-color-palette" class="color-palette" aria-label="Color palette"></div>
+                <input id="node-color" name="color" type="hidden" />
+              </div>
+              <div class="form-actions">
+                <button class="primary-button small" type="submit">Save changes</button>
+                <button id="delete-node" class="danger-button small" type="button">
+                  Delete node
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel">
+            <p class="eyebrow">Create child</p>
+            <h3 id="child-form-title">Add branch to My Universe</h3>
+            <p id="child-form-copy" class="panel-copy">
+              New branches are created under the node currently selected in the inspector.
+            </p>
+            <form id="child-form" class="node-form">
+              <label>
+                Child title
+                <input id="child-title" name="title" maxlength="48" placeholder="New branch" required />
+              </label>
+              <label>
+                Child note
+                <textarea id="child-note" name="note" rows="3" maxlength="240"></textarea>
+              </label>
+              <button class="primary-button small" type="submit">Add branch</button>
+            </form>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
