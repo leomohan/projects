@@ -1,0 +1,17 @@
+{
+  "name": "@netstar/api",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "build": "node -e \"console.log('api build not required for MVP source mode')\""
+  },
+  "dependencies": {
+    "@netstar/shared": "0.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "firebase-admin": "^12.7.0"
+  }
+}
