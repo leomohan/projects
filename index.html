@@ -3,13 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>LeoMohan Labs</title>
-
 <style>
-
 body{
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     margin:0;
     background:#f4f6f8;
     color:#333;
@@ -17,25 +14,56 @@ body{
 
 header{
     background:#1f2937;
-    color:white;
-    padding:40px 20px;
+    color:#fff;
+    padding:48px 20px;
     text-align:center;
 }
 
 header h1{
     margin:0;
-    font-size:34px;
+    font-size:36px;
 }
 
 header p{
-    margin-top:10px;
-    opacity:0.85;
+    max-width:760px;
+    margin:14px auto 0;
+    line-height:1.7;
+    opacity:0.9;
 }
 
 .container{
     max-width:1200px;
     margin:auto;
-    padding:40px 20px;
+    padding:40px 20px 56px;
+}
+
+.intro{
+    background:#fff;
+    border-radius:12px;
+    padding:22px 24px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.08);
+    margin-bottom:32px;
+}
+
+.intro p{
+    margin:0;
+    line-height:1.7;
+}
+
+.section{
+    margin-bottom:34px;
+}
+
+.section h2{
+    margin:0 0 8px;
+    font-size:24px;
+    color:#111827;
+}
+
+.section p{
+    margin:0 0 20px;
+    color:#4b5563;
+    line-height:1.7;
 }
 
 .grid{
@@ -45,40 +73,102 @@ header p{
 }
 
 .card{
-    background:white;
-    border-radius:10px;
-    padding:25px;
+    background:#fff;
+    border-radius:12px;
+    padding:24px;
     box-shadow:0 4px 14px rgba(0,0,0,0.08);
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+    gap:14px;
 }
 
-.card h2{
-    margin-top:0;
+.meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+}
+
+.card h3{
+    margin:0;
     font-size:20px;
     color:#111827;
 }
 
+.badge{
+    display:inline-block;
+    font-size:12px;
+    font-weight:600;
+    padding:6px 10px;
+    border-radius:999px;
+    background:#dbeafe;
+    color:#1d4ed8;
+    white-space:nowrap;
+}
+
+.badge.internal{
+    background:#e5e7eb;
+    color:#374151;
+}
+
+.badge.prototype{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.badge.private{
+    background:#ede9fe;
+    color:#6d28d9;
+}
+
 .card p{
-    line-height:1.6;
+    margin:0;
+    line-height:1.7;
     font-size:15px;
-    margin-bottom:20px;
+}
+
+.details{
+    font-size:13px;
+    color:#6b7280;
+}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:auto;
 }
 
 .button{
     text-decoration:none;
     background:#2563eb;
-    color:white;
+    color:#fff;
     padding:10px 16px;
     border-radius:6px;
     text-align:center;
     display:inline-block;
     font-size:14px;
+    transition:background 0.2s ease;
 }
 
 .button:hover{
     background:#1d4ed8;
+}
+
+.button.secondary{
+    background:#e5e7eb;
+    color:#111827;
+}
+
+.button.secondary:hover{
+    background:#d1d5db;
+}
+
+.button.disabled{
+    background:#cbd5e1;
+    color:#475569;
+    cursor:default;
+    pointer-events:none;
 }
 
 footer{
@@ -88,80 +178,334 @@ footer{
     color:#666;
 }
 
+@media (max-width:640px){
+    header h1{
+        font-size:30px;
+    }
+
+    .meta{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
 </style>
 </head>
-
 <body>
 
 <header>
 <h1>LeoMohan Labs</h1>
-<p>Practical tools for architects, engineers, and builders</p>
+<p>Practical tools, internal platforms, and browser-based experiments across writing, networking, hiring, architecture, and operations.</p>
 </header>
 
 <div class="container">
 
+<div class="intro">
+<p>This catalog brings together the public apps currently live on GitHub Pages, along with platform projects and in-progress internal builds. Most of the tools are designed to run directly in the browser with minimal setup, while a few larger projects are structured as full-stack or Firebase-based applications.</p>
+</div>
+
+<section class="section">
+<h2>Live Browser Apps</h2>
+<p>These applications are already published and can be launched directly from the browser.</p>
 <div class="grid">
 
 <div class="card">
-<h2>3D Book Mockup Generator</h2>
-<p>
-Generate realistic 3D mockups from flat book cover images. 
-This tool helps authors quickly create promotional visuals 
-for social media platforms such as Instagram, Facebook, and YouTube.
-</p>
-<a class="button" href="https://leomohan.github.io/3DMockup/index.html">Launch Tool</a>
+<div class="meta">
+<h3>3D Book Mockup Generator</h3>
+<span class="badge">Live</span>
+</div>
+<p>Turn flat book cover artwork into exportable 3D mockups with browser-based rendering, editable spine text, multiple templates, and social-media-ready PNG export.</p>
+<p class="details">Built for authors, indie publishers, and book marketers.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/3DMockup/" target="_blank" rel="noreferrer">Launch Tool</a>
+<a class="button secondary" href="https://github.com/leomohan/3DMockup" target="_blank" rel="noreferrer">View Repo</a>
+</div>
 </div>
 
 <div class="card">
-<h2>Visual Trace (mTrace)</h2>
-<p>
-Visualize traceroute paths on a world map. Instead of reading 
-rows of IP addresses, this tool displays packet routes 
-geographically to help understand how network traffic travels 
-across regions.
-</p>
-<a class="button" href="https://leomohan.github.io/mTrace/index.html">Launch Tool</a>
+<div class="meta">
+<h3>Visual Trace (mTrace)</h3>
+<span class="badge">Live</span>
+</div>
+<p>Visualize traceroute paths on a world map with animated hop routes, latency context, manual traceroute parsing, and geolocation-aware path inspection.</p>
+<p class="details">Built for network engineers, operations teams, and architecture demos.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/mTrace/" target="_blank" rel="noreferrer">Launch Tool</a>
+<a class="button secondary" href="https://github.com/leomohan/mTrace" target="_blank" rel="noreferrer">View Repo</a>
+</div>
 </div>
 
 <div class="card">
-<h2>Candidate Dossier</h2>
-<p>
-A structured recruitment tool that captures comprehensive 
-candidate information. It replaces traditional resumes with 
-detailed, evidence-based profiles that help hiring managers 
-make more informed decisions.
-</p>
-<a class="button" href="https://leomohan.github.io/CandidateDossier/index.html">Launch Tool</a>
+<div class="meta">
+<h3>Candidate Dossier</h3>
+<span class="badge">Live</span>
+</div>
+<p>Replace resume-only screening with a structured candidate dossier that captures chronology, evidence, reference details, validation checks, and recruiter-friendly summaries.</p>
+<p class="details">Built for structured hiring workflows and evidence-backed recruiting.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/CandidateDossier/" target="_blank" rel="noreferrer">Launch Tool</a>
+<a class="button secondary" href="https://github.com/leomohan/CandidateDossier" target="_blank" rel="noreferrer">View Repo</a>
+</div>
 </div>
 
 <div class="card">
-<h2>Prompt2Diagram</h2>
-<p>
-Convert architecture descriptions into diagrams using 
-tools such as PlantUML and Mermaid. Users can describe 
-a system in plain language and generate structured 
-visual diagrams instantly.
-</p>
-<a class="button" href="https://leomohan.github.io/Prompt2Diagram/index.html">Launch Tool</a>
+<div class="meta">
+<h3>Prompt2Diagram</h3>
+<span class="badge">Live</span>
+</div>
+<p>Convert structured prompts into Mermaid and PlantUML diagrams with deterministic parsing, live preview, syntax editing, validation, and export support.</p>
+<p class="details">Built for solution architects, documentation flows, and technical design sessions.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/P2D/" target="_blank" rel="noreferrer">Launch Tool</a>
+<a class="button secondary" href="https://github.com/leomohan/P2D" target="_blank" rel="noreferrer">View Repo</a>
+</div>
 </div>
 
 <div class="card">
-<h2>NETSTAR Network Maturity Model</h2>
-<p>
-A framework designed to evaluate enterprise network maturity 
-using structured questionnaires, operational checklists, 
-and evidence-based scoring to produce a maturity rating 
-for network environments.
-</p>
-<a class="button" href="#">Coming Soon</a>
+<div class="meta">
+<h3>Author Studio</h3>
+<span class="badge">Live</span>
+</div>
+<p>Build manuscripts locally in the browser with chapter management, rich-text editing, IndexedDB autosave, JSON backup, and export to DOCX, EPUB, and PDF.</p>
+<p class="details">Built for long-form writers and indie publishing workflows.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/authorstudio/" target="_blank" rel="noreferrer">Launch Tool</a>
+<a class="button secondary" href="https://github.com/leomohan/authorstudio" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>Book Sales Analyzer</h3>
+<span class="badge">Live</span>
+</div>
+<p>Analyze Amazon KDP and Draft2Digital sales reports through a lightweight dashboard focused on independent author reporting and revenue visibility.</p>
+<p class="details">Built for authors tracking multi-platform publishing performance.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/bsa/" target="_blank" rel="noreferrer">Launch Tool</a>
+<a class="button secondary" href="https://github.com/leomohan/bsa" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>HTML Ebook Builder</h3>
+<span class="badge">Live</span>
+</div>
+<p>Upload a DOCX manuscript and cover image, preview the content as a browser-based ebook, and export a self-contained HTML book with section navigation.</p>
+<p class="details">Built for simple ebook packaging and browser-native document publishing.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/htmlbookgen/" target="_blank" rel="noreferrer">Launch Tool</a>
+<a class="button secondary" href="https://github.com/leomohan/htmlbookgen" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>Markdown to DOCX Studio</h3>
+<span class="badge">Live</span>
+</div>
+<p>Paste or import Markdown, preview the rendered output live, and export a DOCX document with title, author, and subject metadata directly from the browser.</p>
+<p class="details">Built for lightweight writing, documentation, and conversion workflows.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/markdowntodocx/" target="_blank" rel="noreferrer">Launch Tool</a>
+<a class="button secondary" href="https://github.com/leomohan/markdowntodocx" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>Mermaid Diagram Wizard</h3>
+<span class="badge">Live</span>
+</div>
+<p>Build Mermaid diagrams visually or from natural-language prompts, then export the result as SVG, PNG, PDF, or Mermaid source.</p>
+<p class="details">Built for fast diagramming without a server or local install.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/mdw/" target="_blank" rel="noreferrer">Launch Tool</a>
+<a class="button secondary" href="https://github.com/leomohan/mdw" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>MyMind</h3>
+<span class="badge">Live</span>
+</div>
+<p>Create radial mind maps in the browser with local persistence, branch collapsing, and export to SVG, PNG, or PDF.</p>
+<p class="details">Built for visual thinking, notes, and idea exploration.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/MyMind/" target="_blank" rel="noreferrer">Launch Tool</a>
+<a class="button secondary" href="https://github.com/leomohan/MyMind" target="_blank" rel="noreferrer">View Repo</a>
+</div>
 </div>
 
 </div>
+</section>
+<!--
+<section class="section">
+<h2>Platforms And Assessment Apps</h2>
+<p>These projects are broader application platforms, internal tools, or assessment frameworks rather than single-page utilities.</p>
+<div class="grid">
 
+<div class="card">
+<div class="meta">
+<h3>NETSTAR Auditor Companion</h3>
+<span class="badge internal">Internal Build</span>
+</div>
+<p>A modular enterprise network maturity assessment platform with structured questionnaires, checklist scoring, evidence capture, and reporting views for auditors.</p>
+<p class="details">React frontend, Node API, shared scoring package, and Firebase-ready persistence hooks.</p>
+<div class="actions">
+<a class="button disabled" href="#">In Progress</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>Cybersecurity Partner Portal</h3>
+<span class="badge private">Private</span>
+</div>
+<p>A partner portal for cybersecurity distribution workflows covering registration approval, resource libraries, deal registration, training, announcements, and admin dashboards.</p>
+<p class="details">Built with React, Firebase Authentication, Firestore, Storage, Cloud Functions, and Hosting.</p>
+<div class="actions">
+<a class="button disabled" href="#">Private Project</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>Proposal Response Platform</h3>
+<span class="badge private">Private</span>
+</div>
+<p>An internal bid and proposal response platform for RFPs, RFIs, security questionnaires, reusable knowledge, search, exports, and optional AI-assisted drafting.</p>
+<p class="details">Built as a full-stack React, Express, Prisma, and PostgreSQL application with Docker support.</p>
+<div class="actions">
+<a class="button disabled" href="#">Private Project</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>Network Psychology Assessment</h3>
+<span class="badge prototype">Prototype</span>
+</div>
+<p>An assessment concept focused on the human and behavioral side of networking practice, positioned as a structured evaluation tool rather than a conventional infrastructure dashboard.</p>
+<p class="details">Public repository available, but no live deployment detected yet.</p>
+<div class="actions">
+<a class="button secondary" href="https://github.com/leomohan/networkpsychology" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>Companion And Source Projects</h2>
+<p>These repositories support books, experiments, or broader personal product directions that are part of the overall lab ecosystem.</p>
+<div class="grid">
+
+<div class="card">
+<div class="meta">
+<h3>AI Fortress Companion</h3>
+<span class="badge prototype">Source Repo</span>
+</div>
+<p>Companion code and scripts supporting the book <em>The AI Fortress</em>, collected as a practical reference repository rather than a single end-user web app.</p>
+<p class="details">Best treated as a code resource and companion asset library.</p>
+<div class="actions">
+<a class="button secondary" href="https://github.com/leomohan/aifortress" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>Web And Portfolio Repositories</h2>
+<p>These repositories focus on portfolio presentation, publishing, or personal web presence rather than standalone application workflows.</p>
+<div class="grid">
+
+<div class="card">
+<div class="meta">
+<h3>Mohan&apos;s Creative Works</h3>
+<span class="badge">Live</span>
+</div>
+<p>The primary public homepage and publishing hub for creative work, profile links, and personal web presence.</p>
+<p class="details">Backed by the <code>leomohan.github.io</code> repository.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/" target="_blank" rel="noreferrer">Visit Site</a>
+<a class="button secondary" href="https://github.com/leomohan/leomohan.github.io" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>leomohan</h3>
+<span class="badge">Live</span>
+</div>
+<p>A 2026 website build published as a separate site repository, likely used for a newer or alternate personal web experience.</p>
+<p class="details">Public live page detected at the project subpath.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/leomohan/" target="_blank" rel="noreferrer">Visit Site</a>
+<a class="button secondary" href="https://github.com/leomohan/leomohan" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>mohan-site</h3>
+<span class="badge">Live</span>
+</div>
+<p>An earlier personal website iteration published as its own repository and still available as a live project site.</p>
+<p class="details">Useful as a historical or alternate website version.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/mohan-site/" target="_blank" rel="noreferrer">Visit Site</a>
+<a class="button secondary" href="https://github.com/leomohan/mohan-site" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>web2026</h3>
+<span class="badge">Live</span>
+</div>
+<p>A newer personal website repository with a live deployment, positioned as another branch of the broader web presence work.</p>
+<p class="details">Public site detected, with the repository described as a new website build.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/web2026/" target="_blank" rel="noreferrer">Visit Site</a>
+<a class="button secondary" href="https://github.com/leomohan/web2026" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>projects</h3>
+<span class="badge">Live</span>
+</div>
+<p>The landing repository for this catalog, used to present and organize the broader set of labs projects in one place.</p>
+<p class="details">This page is published from the same repository.</p>
+<div class="actions">
+<a class="button" href="https://leomohan.github.io/projects/" target="_blank" rel="noreferrer">Visit Site</a>
+<a class="button secondary" href="https://github.com/leomohan/projects" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+<div class="card">
+<div class="meta">
+<h3>gitpodprojects</h3>
+<span class="badge prototype">Repo Only</span>
+</div>
+<p>A general-purpose repository with no public description or live page currently detected, likely used as an experiments or workspace container.</p>
+<p class="details">Included here for completeness because it is part of the public GitHub repo set.</p>
+<div class="actions">
+<a class="button secondary" href="https://github.com/leomohan/gitpodprojects" target="_blank" rel="noreferrer">View Repo</a>
+</div>
+</div>
+
+</div>
+</section>
+-->
 </div>
 
 <footer>
-LeoMohan Labs • Experiments in architecture, networking, and practical tools
+LeoMohan Labs • Experiments in architecture, networking, publishing, recruiting, and practical tools
 </footer>
 
 </body>
