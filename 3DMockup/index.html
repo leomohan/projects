@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Book Mockup Generator</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="control-panel">
+        <div class="panel-header">
+          <p class="eyebrow">Browser-based mockups</p>
+          <h1>3D Book Mockup Generator</h1>
+          <p class="intro">
+            Upload a flat cover and export social-ready 3D mockups in a few clicks.
+          </p>
+        </div>
+
+        <section class="control-group upload-group">
+          <label class="group-label" for="cover-input">Book Cover</label>
+          <div class="dropzone" id="dropzone">
+            <input id="cover-input" type="file" accept=".png,.jpg,.jpeg" hidden />
+            <div class="dropzone-copy">
+              <strong>Drop PNG/JPG here</strong>
+              <span>or click to browse</span>
+            </div>
+            <img id="cover-thumb" class="cover-thumb hidden" alt="Uploaded cover preview" />
+          </div>
+        </section>
+
+        <section class="control-group">
+          <label class="group-label" for="book-title-input">Book Title</label>
+          <input
+            id="book-title-input"
+            type="text"
+            maxlength="80"
+            value="Your Book Title"
+            placeholder="Enter book title"
+          />
+        </section>
+
+        <section class="control-group">
+          <label class="group-label" for="author-name-input">Author's Name</label>
+          <input
+            id="author-name-input"
+            type="text"
+            maxlength="80"
+            value="Author Name"
+            placeholder="Enter author name"
+          />
+        </section>
+
+        <section class="control-group">
+          <label class="group-label" for="template-select">Mockup Style</label>
+          <select id="template-select"></select>
+        </section>
+
+        <section class="control-grid">
+          <div class="control-group">
+            <label class="group-label" for="background-select">Background</label>
+            <select id="background-select">
+              <option value="transparent">Transparent</option>
+              <option value="white">White</option>
+              <option value="gradient" selected>Neutral gradient</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label class="group-label" for="size-select">Output Ratio</label>
+            <select id="size-select">
+              <option value="square">Instagram Post 1:1</option>
+              <option value="vertical">Reel / Shorts 9:16</option>
+              <option value="landscape">Facebook Post 1.91:1</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="control-grid sliders">
+          <div class="control-group">
+            <label class="group-label" for="shadow-range">Shadow</label>
+            <input id="shadow-range" type="range" min="0.2" max="1.4" step="0.05" value="0.75" />
+          </div>
+
+          <div class="control-group">
+            <label class="group-label" for="tilt-range">Tilt</label>
+            <input id="tilt-range" type="range" min="-20" max="20" step="1" value="0" />
+          </div>
+        </section>
+
+        <div class="action-row">
+          <button id="export-button" class="primary-button">Export PNG</button>
+        </div>
+
+        <section class="control-group tips">
+          <p class="group-label">Template Notes</p>
+          <p id="template-description" class="template-description"></p>
+        </section>
+      </aside>
+
+      <main class="preview-panel">
+        <div class="preview-header">
+          <div>
+            <p class="eyebrow">Live preview</p>
+            <h2 id="preview-title">Standing Book</h2>
+          </div>
+          <p class="preview-meta" id="preview-meta">1080 x 1080 PNG export</p>
+        </div>
+
+        <div class="preview-stage">
+          <canvas id="preview-canvas"></canvas>
+          <div class="preview-overlay">
+            <span>Drag to orbit</span>
+            <span>Scroll to zoom</span>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
